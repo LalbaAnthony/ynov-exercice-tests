@@ -7,4 +7,4 @@
 - Aller dans le dossier du projet et lancer la commande : `composer install`
 
 ### Tests unitaires
-- Exemple: `vendor/bin/phpunit --bootstrap index.php tests/AdditionTest.php`
+- Exemple: `vendor/bin/phpunit --bootstrap functions/Addition.php tests/AdditionTest.php`
