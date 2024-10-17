@@ -620,7 +620,7 @@
             },
             "autoload": {
                 "files": [
-                    "src/Framework/Assert/Functions.php"
+                    "src/Framework/Assert/src.php"
                 ],
                 "classmap": [
                     "src/"
