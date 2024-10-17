@@ -1,0 +1,7 @@
+<phpunit bootstrap="index.php">
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory>./</directory>
+        </include>
+    </coverage>
+</phpunit>
