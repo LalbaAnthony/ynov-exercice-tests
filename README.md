@@ -27,3 +27,6 @@ Exemples:
 
 - Run test: `vendor/bin/phpunit --bootstrap src/HanoiTower.class.php tests/HanoiTowerTest.php`
 - Run coverage: `vendor/bin/phpunit --coverage-html coverage-report --bootstrap src/HanoiTower.class.php tests`
+
+- Run test: `vendor/bin/phpunit --bootstrap src/Librairie.class.php tests/LibrairieTest.php`
+- Run coverage: `vendor/bin/phpunit --coverage-html coverage-report --bootstrap src/Librairie.class.php tests`

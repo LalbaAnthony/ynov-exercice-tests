@@ -8,6 +8,9 @@ class Librairie
     {
         $tomes = [$nbTome1, $nbTome2, $nbTome3, $nbTome4, $nbTome5];
         foreach ($tomes as $nbTome) {
+            if (!is_int($nbTome)) {
+                throw new InvalidArgumentException("Nombre de tomes doit être un entier");
+            }
             if ($nbTome < 0 || $nbTome > self::MAX_TOMES) {
                 throw new InvalidArgumentException("Nombre de tomes doit être entre 0 et " . self::MAX_TOMES);
             }
