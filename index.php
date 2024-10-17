@@ -18,3 +18,10 @@ $totalMoves = $hanoi->getTotalMoves();
 var_dump($moves);
 var_dump($totalMoves);
 echo '<br><br><br>';
+
+// Librairie
+
+include_once 'src/Librairie.class.php';
+echo 'Librairie';
+var_dump(Librairie::amountSeries(1, 1, 1, 1, 1));
+echo '<br><br><br>';
