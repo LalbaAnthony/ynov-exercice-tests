@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"AdditionTest::testAddition":10.315}}
+{"version":1,"defects":{"HanoiTowerTest::testHandoiTower":7},"times":{"AdditionTest::testAddition":10.223,"HanoiTowerTest::testHandoiTower":0.011}}

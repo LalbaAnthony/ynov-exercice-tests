@@ -20,6 +20,10 @@ xdebug.start_with_request = yes
 
 ### Tests unitaires
   
-Exemple:
+Exemples:
+
 - Run test: `vendor/bin/phpunit --bootstrap src/Addition.php tests/AdditionTest.php`
-- Run coverage: ` vendor/bin/phpunit --coverage-html coverage-report --bootstrap src/Addition.php tests`
+- Run coverage: `vendor/bin/phpunit --coverage-html coverage-report --bootstrap src/Addition.php tests`
+
+- Run test: `vendor/bin/phpunit --bootstrap src/HanoiTower.class.php tests/HanoiTowerTest.php`
+- Run coverage: `vendor/bin/phpunit --coverage-html coverage-report --bootstrap src/HanoiTower.php tests`

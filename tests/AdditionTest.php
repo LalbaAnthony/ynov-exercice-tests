@@ -4,7 +4,6 @@ use PHPUnit\Framework\TestCase;
 
 class AdditionTest extends TestCase
 {
-    // Test basique pour vérifier si la fonction addition fonctionne correctement
     public function testAddition()
     {
         $expected = 5;
