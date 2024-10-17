@@ -5,3 +5,6 @@
 - Cloner le projet dans `C:\xampp\htdocs\projects\`
 - Installez composer si besoin : `https://getcomposer.org/download/`
 - Aller dans le dossier du projet et lancer la commande : `composer install`
+
+### Tests unitaires
+- Exemple: `vendor/bin/phpunit --bootstrap index.php tests/AdditionTest.php`
