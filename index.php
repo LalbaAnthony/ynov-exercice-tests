@@ -23,5 +23,5 @@ echo '<br><br><br>';
 
 include_once 'src/Librairie.class.php';
 echo 'Librairie';
-var_dump(Librairie::amountSeries(1, 1, 1, 1, 1));
+var_dump(Librairie::amountSeries(2, 2, 2, 1, 1)); // 51.20
 echo '<br><br><br>';

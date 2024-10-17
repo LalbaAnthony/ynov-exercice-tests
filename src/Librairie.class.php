@@ -1,53 +1,62 @@
 <?php
+
 class Librairie
 {
-    const PRIX_PAR_TOME = 8.0;
-    const MAX_TOMES = 5;
+    const PRIX_PAR_TOME = 8.0; // Prix d'un tome
+    const MAX_TOMES = 5; // Nombre maximum de tomes
 
     public static function amountSeries(int $nbTome1, int $nbTome2, int $nbTome3, int $nbTome4, int $nbTome5): float
     {
+        // Vérification des valeurs d'entrée
         $tomes = [$nbTome1, $nbTome2, $nbTome3, $nbTome4, $nbTome5];
+
         foreach ($tomes as $nbTome) {
-            if (!is_int($nbTome)) {
-                throw new InvalidArgumentException("Nombre de tomes doit être un entier");
-            }
             if ($nbTome < 0 || $nbTome > self::MAX_TOMES) {
                 throw new InvalidArgumentException("Nombre de tomes doit être entre 0 et " . self::MAX_TOMES);
             }
         }
 
+        // Calcul du nombre total de tomes
         $totalTomes = array_sum($tomes);
 
+        // Prix sans réduction
         $totalPrice = $totalTomes * self::PRIX_PAR_TOME;
 
+        // Si aucun livre n'est acheté, retourner 0
         if ($totalTomes == 0) {
             return 0.0;
         }
 
-        $maxDiscount = 0;
-        if ($totalTomes == 2) {
-            $maxDiscount = 0.05;
-        } elseif ($totalTomes == 3) {
-            $maxDiscount = 0.10;
-        } elseif ($totalTomes == 4) {
-            $maxDiscount = 0.20;
-        } elseif ($totalTomes == 5) {
-            $maxDiscount = 0.25;
+        // Calcul des réductions
+        $discounts = [];
+
+        // Vérification des réductions selon le nombre total de tomes
+        if ($totalTomes >= 2) {
+            $discounts[] = $totalTomes * self::PRIX_PAR_TOME * 0.05; // 5% de réduction
+        }
+        if ($totalTomes >= 3) {
+            $discounts[] = $totalTomes * self::PRIX_PAR_TOME * 0.10; // 10% de réduction
+        }
+        if ($totalTomes >= 4) {
+            $discounts[] = $totalTomes * self::PRIX_PAR_TOME * 0.20; // 20% de réduction
+        }
+        if ($totalTomes >= 5) {
+            $discounts[] = $totalTomes * self::PRIX_PAR_TOME * 0.25; // 25% de réduction
         }
 
-        if ($totalTomes > 2) {
-            $discountForTwo = ($nbTome1 > 0 && $nbTome2 > 0) ? 0.05 : 0;
-            $discountForThree = ($nbTome1 > 0 && $nbTome2 > 0 && $nbTome3 > 0) ? 0.10 : 0;
-
-            if ($discountForTwo > $maxDiscount) {
-                $maxDiscount = $discountForTwo;
-            }
-            if ($discountForThree > $maxDiscount) {
-                $maxDiscount = $discountForThree;
-            }
+        // Calcul des réductions cumulées par rapport aux tomes différents
+        $uniqueTomesCount = count(array_filter($tomes));
+        if ($uniqueTomesCount >= 2) {
+            $discounts[] = ($nbTome1 + $nbTome2) * self::PRIX_PAR_TOME * 0.05; // 5% sur 2 tomes
+        }
+        if ($uniqueTomesCount >= 3) {
+            $discounts[] = ($nbTome1 + $nbTome2 + $nbTome3) * self::PRIX_PAR_TOME * 0.10; // 10% sur 3 tomes
         }
 
-        $finalPrice = $totalPrice * (1 - $maxDiscount);
-        return round($finalPrice, 2);
+        // Trouver la meilleure réduction
+        $maxDiscount = max($discounts);
+        $finalPrice = $totalPrice - $maxDiscount;
+
+        return round($finalPrice, 2); // Arrondi à 2 décimales
     }
 }
