@@ -2,6 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 
+include_once 'src/Addition.php';
+
 class AdditionTest extends TestCase
 {
     public function testAddition()
